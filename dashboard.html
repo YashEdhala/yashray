@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | YesRay</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/a076d05399.js">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3b3f49;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff6347;
+    }
+
+    .logout-btn {
+      background-color: #ff6347;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #e53d32;
+    }
+
+    .dashboard-section {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 30px;
+      margin: 40px;
+    }
+
+    .sidebar {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      color: #555;
+      font-size: 16px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      color: #ff6347;
+    }
+
+    .main-content {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .main-content h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .status.pending {
+      background-color: #ffae42;
+    }
+
+    .status.accepted {
+      background-color: #2ecc71;
+    }
+
+    .status.rejected {
+      background-color: #e74c3c;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .stats .stat-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      width: 23%;
+    }
+
+    .stats .stat-card h4 {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .stats .stat-card .count {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    th {
+      background-color: #f4f7fc;
+      color: #333;
+    }
+
+    td {
+      background-color: #fafafa;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form input[type="file"] {
+      margin-bottom: 15px;
+    }
+
+    form select, form input[type="file"], form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-section {
+        grid-template-columns: 1fr;
+      }
+
+      .stats .stat-card {
+        width: 48%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .logout-btn {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with navigation links -->
+  <header>
+    <div class="logo">YesRay</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <!-- Dashboard main content -->
+  <section class="dashboard-section">
+    <!-- Sidebar with navigation links -->
+    <div class="sidebar">
+      <h3>Welcome, YesRay</h3>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="applications.html">My Applications</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main content with account overview and applications -->
+    <div class="main-content">
+      <h2>Account Overview</h2>
+
+      <!-- New Stats Section: Pending, Accepted, Rejected, Available Jobs -->
+      <div class="stats">
+        <div class="stat-card">
+          <h4>Pending Jobs</h4>
+          <div class="count" id="pendingCount">3</div>
+        </div>
+        <div class="stat-card">
+          <h4>Accepted Jobs</h4>
+          <div class="count" id="acceptedCount">5</div>
+        </div>
+        <div class="stat-card">
+          <h4>Rejected Jobs</h4>
+          <div class="count" id="rejectedCount">2</div>
+        </div>
+        <div class="stat-card">
+          <h4>Available Jobs</h4>
+          <div class="count" id="availableCount">8</div>
+        </div>
+      </div>
+
+      <!-- Applications table -->
+      <div class="card">
+        <h3>Your Applications</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Job Title</th>
+              <th>Status</th>
+              <th>Date Applied</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Software Engineer</td>
+              <td><span class="status pending">Pending</span></td>
+              <td>March 15, 2025</td>
+            </tr>
+            <tr>
+              <td>Product Manager</td>
+              <td><span class="status accepted">Accepted</span></td>
+              <td>April 10, 2025</td>
+            </tr>
+            <tr>
+              <td>UX Designer</td>
+              <td><span class="status rejected">Rejected</span></td>
+              <td>May 1, 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Application Upload Form -->
+      <div class="card">
+        <h3>Apply for a Job</h3>
+        <form action="submit_application.php" method="POST" enctype="multipart/form-data">
+          <label for="jobCategory">Job Category</label>
+          <select id="jobCategory" name="jobCategory" required>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Product Management">Product Management</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+
+          <label for="cvUpload">Upload CV</label>
+          <input type="file" id="cvUpload" name="cv" accept=".pdf,.doc,.docx" required>
+
+          <label for="coverLetterUpload">Upload Cover Letter</label>
+          <input type="file" id="coverLetterUpload" name="coverLetter" accept=".pdf,.doc,.docx" required>
+
+          <button type="submit">Submit Application</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // Logout function
+    function logout() {
+      window.location.href = "login.html";
+    }
+
+    // Dynamic data (example)
+    document.getElementById("pendingCount").innerText = 3;
+    document.getElementById("acceptedCount").innerText = 5;
+    document.getElementById("rejectedCount").innerText = 2;
+    document.getElementById("availableCount").innerText = 8;
+  </script>
+</body>
+</html>
