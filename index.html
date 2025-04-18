@@ -1,65 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title>About Me</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            line-height: 1.6;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .main-info {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-        }
-        .main-info h1 {
-            margin: 0;
-        }
-        .hobbies, .lewis, .course, .job {
-            background: #e7e7e7;
-            padding: 15px;
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>YesRay - Sleek Home</title>
+  <!-- Yeswanth code: Link to Google Fonts for modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap"
+  >
+  <!-- Yeswanth code: Link to external CSS file -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="main-info">
-            <h1>[Your First and Last Name]</h1>
-            <h1>Preferred Name: [Your Preferred Name]</h1>
-        </header>
+  <!-- Yeswanth code: Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">YesRay</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+     <button class="register-btn"><a href="register.html">Register</a></button>
 
-        <section class="lewis">
-			<h2>Year at Lewis: [Your Years at Lewis]</h2>
-			<h2>Lewis major/minor/concentrations: [Your major/minor/concentrations]</h2>
-			<h2>Reasons for pursuing this degree: [Your reasons for pursuing the degree]</h2>
-        </section>
+    </nav>
+  </header>
 
-		<section class="course">
-            <h2>Reasons for Taking This Course</h2>
-            <p>[Your reasons for taking this course]</p>
-        </section>
+  <!-- Yeswanth code: Main Content -->
+  <main>
+    <!-- Yeswanth code: Hero Section with Gradient and Eye-catching CTA -->
+    <section id="home" class="hero-section">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Empower Your Job Search</h1>
+        <p>Supercharge your career with custom resumes, curated listings, and personalized insights.</p>
+        <button class="cta-btn">Get Started</button>
+      </div>
+    </section>
 
-		<section class="job">
-            <p>Current/Recent Job</p>
-			<p>[Your job responsibilities]</p>
-        </section>		
+    <!-- Yeswanth code: Features Section -->
+    <section class="features-section">
+      <h2>Core Highlights</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon-circle">ðŸ”Ž</div>
+          <h3>Job Discovery</h3>
+          <p>Explore diverse roles tailored to your skills and goals. Itâ€™s never been easier to find the perfect match.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">âœ</div>
+          <h3>Resume Tailoring</h3>
+          <p>Instantly optimize your resume for each applicationâ€”stand out in any ATS or recruiterâ€™s inbox.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">âœ…</div>
+          <h3>Application Tracking</h3>
+          <p>Keep tabs on every stage of the hiring process with easy-to-use tracking tools and reminders.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">âœ¨</div>
+          <h3>Personalized Insights</h3>
+          <p>Receive curated job recommendations, skill gaps analysis, and career tips just for you.</p>
+        </div>
+      </div>
+    </section>
 
-        <section class="hobbies">
-            <h2>Hobbies and Special Interests</h2>
-            <p>[Your hobbies or special interests]</p>
-        </section>
+    <!-- Yeswanth code: About Section with Another Gradient -->
+    <section id="about" class="about-section">
+      <h2>About YesRay</h2>
+      <p>
+        Weâ€™re dedicated to transforming the way you search, apply, and grow in your career. 
+        From automated resume tailoring to real-time job tracking, YesRay is built to help you 
+        find meaningful work and excel in it.
+      </p>
+      <p>
+        Our platform integrates modern techâ€”like AI-driven recommendationsâ€”to simplify every 
+        step of the application process. Join thousands of job seekers who rely on YesRay to 
+        launch their next professional chapter.
+      </p>
+    </section>
 
-        <section class="fun-fact">
-            <h2>Fun Fact</h2>
-            <p>[A fun fact about yourself]</p>
-        </section>
-    </div>
+    <!-- Yeswanth code: Contact Section (Now references your email) -->
+    <section id="contact" class="contact-section">
+      <h2>Get in Touch</h2>
+      <p>
+        Have questions, feedback, or just want to say hello? Our support team is here to help. 
+        You can also reach us at 
+        <a href="mailto:YeswanthSEdhala@lewisu.edu">YeswanthSEdhala@lewisu.edu</a>.
+      </p>
+      <form class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Yeswanth code: Footer -->
+  <footer>
+    <p>&copy; 2025 YesRay. All rights reserved.</p>
+  </footer>
+
+  <!-- Yeswanth code: External JavaScript -->
+  <script src="script.js"></script>
 </body>
+
+<!-- Mirrored from yashedhala.github.io/Yesrayhome/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Apr 2025 09:45:12 GMT -->
 </html>
